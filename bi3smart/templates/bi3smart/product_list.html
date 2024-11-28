@@ -1,0 +1,17 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        
+        {% for product in products %}
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.description }}</p>
+    <p>Price: {{ product.price }}</p>
+    <form method="POST" action="{% url 'add_to_cart' product.id %}">
+        {% csrf_token %}
+        <button type="submit">Add to Cart</button>
+    </form>
+{% endfor %}
+    </body>
+</html>

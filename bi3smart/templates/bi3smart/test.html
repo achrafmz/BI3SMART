@@ -1,0 +1,17 @@
+<html>
+    <head></head>
+    <body>
+        {%for product in product_object %}
+    <div>
+        <h2>{{ product.title }}</h2>
+        <p>{{ product.description }}</p>
+        <p>Price: {{ product.price }}</p>
+        <form action="{% url 'add_to_cart' product.id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Ajouter au panier">
+        </form>
+    </div>
+{% endfor %}
+
+    </body>
+</html>
